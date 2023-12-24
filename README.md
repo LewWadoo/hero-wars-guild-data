@@ -1,0 +1,1 @@
+# hero-wars-guild-data
