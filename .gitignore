@@ -1,0 +1,8 @@
+# Backup files
+*~
+
+# Database
+*.db
+
+# Test files
+hero-wars-guild-data-test.el
