@@ -251,6 +251,13 @@
 	   [:insert :into players ([id name])
 		    :values $v1] (vector player-id name)))
 
+(defun guild-db-rename-player (player-id new-name)
+  "Rename the player with the given PLAYER-ID to the NEW-NAME."
+  (emacsql guild-db-connection
+	   [:update players
+		    :set (= name $s1)
+		    :where (= id $s2)]
+	   new-name player-id))
 
 ;; tested
 (defun guild-db-read-player (player-id)
@@ -559,5 +566,13 @@
 			 [:select [rank-name] :from ranks
 				  :order-by (asc rank-name)])))
     (mapcar #'car result)))
+
+(defun guild-db-get-last-week-id ()
+  "Retrieve the ID of the last week."
+  (let ((result (emacsql guild-db-connection
+			 [:select [id] :from weeks
+				  :order-by (desc id)
+				  :limit 1])))
+    (car (car result))))
 
 (provide 'guild-db)
