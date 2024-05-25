@@ -6,3 +6,7 @@
 
 # Test files
 hero-wars-guild-data-test.el
+
+# Wendy
+wendy/node_modules
+wendy/yarn.lock
