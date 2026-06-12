@@ -6,7 +6,8 @@ let week_id;
 let allPlayerNames = {};
 
 module.exports = defineConfig({
-  pageLoadTimeout: 60000,
+  pageLoadTimeout: 120000,
+  defaultCommandTimeout: 16000,
   e2e: {
     baseUrl: 'https://wendy-shop.nexters.com',
     setupNodeEvents(on, config) {
